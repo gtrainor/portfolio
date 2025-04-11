@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact me!</title>
-    <h1>Contact me!</h1>
     <nav>
         <a href="../index.html">Home</a>
         <a href="../projects/index.html">Projects</a>
-        <a href="../contact/index.html">Contact</a>
+        <a href="../contact/index.html" class="current">Contact</a>
         <a href="../resume/index.html">Resume</a>
         <a href="https://github.com/gtrainor" target="_blank">GitHub</a>
       </nav>
+    <h1>Contact me!</h1>
+    <link rel="stylesheet" href="../style.css">
+    
 </head>
 <body>
-    <form action="mailto:gracectrainor@gmail.com" method = "POST" enctype="text/plain">
-        <label for="html">Email</label>
-        <input type="email" name="email">
-        <label for="html">Subject</label>
-        <input name="subject">
-        <label for="html">Body</label>
-        <textarea name="body"></textarea><br><br>
-        <button>Submit</button> 
+    <form action="mailto:gracectrainor@gmail.com" method="POST" enctype="text/plain">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject">
+
+        <label for="body">Body</label>
+        <textarea id="body" name="body"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>

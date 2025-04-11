@@ -3,4 +3,142 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    display: block;
+   /* margin: 10px; */
+    margin-inline: 10px;
+    padding: 10px;
   }
+  
+img {
+  width: 50%; /*wanted to make the image smaller */
+  height: auto;
+}
+
+/*
+nav ul,
+nav li {
+  display: contents; 
+
+}
+*/
+nav {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+
+}
+nav a{
+  flex: 1;
+  text-align: center;
+  padding: 0.5em;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  
+}
+nav a.current {
+  border-bottom-width: 0.4em; 
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+  padding-bottom: 0.4em;
+  /*color: purple;*/
+
+}
+  
+:root {
+  --color-accent: oklch(65% 50% 0); /* Accent color */
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+nav a:hover{
+  border-bottom-width: 0.4em; 
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+input, textarea, button {
+  font: inherit; 
+
+}
+form{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+label{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  /* grid-column: 1 / -1;  doesn't work how it should */
+}
+button{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  grid-column: 1 / -1;
+  text-align: center;
+  vertical-align: middle;  
+  display: inline-block;   
+ 
+}
+.projects{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em,1fr));
+
+}
+.projects article{
+  display:grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em
+
+}
+.projects article h2 {
+  margin: 0
+}
+
+h1, h2, h3, h4, h5, h6{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+h1{
+  font-size: 300%;
+  margin-bottom: 0.5em;
+
+}
+.link {
+  color: #b36868;
+  text-decoration: none;
+}
+
+.link:hover{
+  border-bottom-width: 0.4em; 
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+section article {
+  font-weight: bold;
+  gap: 1em;
+}
+
+section time{
+  font-style: italic;
+  color: #b36868;
+}
+.space{
+  margin-top: 1em;
+}
+
+section {
+  background-color: white;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
