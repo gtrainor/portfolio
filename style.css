@@ -9,6 +9,9 @@ body {
     margin-inline: 10px;
     padding: 10px;
   }
+  :root {
+    color-scheme: light dark;
+  }
   
 img {
   width: 50%; /*wanted to make the image smaller */
@@ -27,7 +30,9 @@ nav {
   margin-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
+  /* border-bottom-color: oklch(80% 3% 200); */
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
 
 }
 nav a{
@@ -59,7 +64,7 @@ nav a:hover{
   border-bottom-width: 0.4em; 
   border-bottom-style: solid;
   border-bottom-color: var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 input, textarea, button {
@@ -142,3 +147,10 @@ section {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.color-scheme{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
