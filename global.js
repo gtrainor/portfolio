@@ -33,6 +33,7 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
     // next step: create link and add it to nav
+    
     if (!url.startsWith('http')) {
         url = BASE_PATH + url;
     }
@@ -44,7 +45,8 @@ for (let p of pages) {
 
     a.classList.toggle(
         'current',
-        a.host === location.host && a.pathname === location.pathname);
+        a.host === location.host && a.pathname === location.pathname,
+        a.target = "_blank");
         
     a.toggleAttribute("target", a.host !== location.host);
     nav.append(a);
@@ -68,9 +70,14 @@ document.body.insertAdjacentHTML(
   select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
     document.documentElement.style.setProperty('color-scheme', event.target.value);
+    localStorage.colorScheme = event.target.value;
 
   });
-  
+
+  if ("colorScheme" in localStorage){
+    document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
+    select.value = localStorage.colorScheme;
+  }
 
   
 
