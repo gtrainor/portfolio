@@ -15,9 +15,9 @@ console.log('IT’S ALIVE!');
 
 let pages = [
     { url: 'index.html', title: 'Home' },
-    { url: 'projects/index.html', title: 'Projects' },
-    { url: 'contact/index.html', title: 'Contact' },
-    { url: 'resume/index.html', title: 'Resume' },
+    { url: 'projects/', title: 'Projects' },
+    { url: 'contact/', title: 'Contact' },
+    { url: 'resume/', title: 'Resume' },
     { url: "https://github.com/gtrainor", title: 'GitHub'},
     // add the rest of your pages here
   ];
