@@ -2,7 +2,7 @@
     {
         "title": "BlackJack Game",
         "year": "2023",
-        "image": "https://blackjack-by-grace-and-kayla.onrender.com/game",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "A Black Jack game built with HTML, CSS, and JavaScript that uses machine learning to simulate an adaptive dealer strategy for a more dynamic and challenging gameplay experience."
     },
     {
