@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(348, 25%, 68%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+      figure {
+        overflow-x: auto;
+        padding: 1em;
+      }
+
+
+      h1, h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* or 'contain' */
+      }
+
+      ul, ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: rgb(229, 223, 223);
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+      }
+
+      figure figcaption {
+        font: 500 75% var(--font-sans);
+        background: var(--color-neutral-95);
+        padding: 0.5rem;
+        margin: -0.5rem;
+        margin-top: 0.5rem;
+        counter-increment: figure;
+        text-align: left;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+    
+        Persuasive or Deceptive Visualization?
+      </h1>
+      <p><strong>Grace Trainor</strong> — <em>gtrainor@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: White police officers are more likely to avoid accountability for crimes committed against Black individuals than any other group.</h2>
+      <section>
+        <h3>FOR the Proposition</h3>
+        <figure>
+          <img id="staticImage" src="img/for.png" alt="Chart image" style="max-width:100%; display:block;">
+          <div style="width: 100%;">
+            <iframe
+              id="interactiveChart"
+              src="plots/f_chart.html"
+              width="100%"
+              height="600"
+              style="display: none; border: none;"
+            ></iframe>
+          </div>
+          <figcaption id="chartCaption">
+            <span id="captionText">There are disproportionate results across races.</span>
+            <br>
+            <button onclick="toggleForChart(event)" style="margin-top:10px;">Click for an Interactive Version!</button>
+          </figcaption>          
+          </figcaption>
+        </figure>
+      </section>
+      
+        
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li>#1: Removing Non-Specific Racial Categories</li>
+          <p>In addition to the racial categories shown in the legend, there were also "Unknown", "Other", and "Refused." 
+            I removed them because they distract from my proposition and additionally they add conflicting data as for example, "Unknown" shows greater amounts of exoneration
+            which as a result adds opposing evidence to my proposition. In addition I removed them because most won't think at first glance that they existed previously
+          as these categories are miscelaneous and so could be easily overlooked. This adds to the deception, but in a non obvious way at least at first glance.
+        This decision helps make my visualization persuasive because it provides a much simpler graph to look at, so less clutter, and it removes conflicting 
+      data. This works well to essentially manipulate my audience to focus on what I want them to, but what could not work well is if they notice the absence of these racial categories.
+      I considered keeping the categories, but given our ability to be deceptive I chose against doing so as I felt removing these categories made a big difference on the persuasive front.
+    I would give my decision a -1.5 as it is quite deceptive since it removes data that could be easily missed and fails to mention this removal. I also think it was very deceptive because of my 
+  thought process for doing so was one that was centered in deception and having my audience percevie my graph how I wanted them to do so. </p>
+       
+          <li>#2: The Shortened Axis Range</li>
+          <p>My y-axis only went from 20 to 45 percent and this a deceitful tactic, one that is long used and known. I used this tactic to provide a really zoomed in view of the differences
+            from bar to bar. These differences emphasized my point and I felt that without the zoomed in look, my audience could fail to see the evidence behind my proposition. This decision helps make my visualization persuasive because 
+            most individuals common instinct is to ascertain the size difference between different bars and then decide is those differences are substantial. I believe with the zoomed in look, they 
+            have a great bigger size difference and so my audience will ascertain that there is substance to my proposition. I think the change in axis range helps visually persuade my audience in a deceitful way.
+            Having a full axis works as well, but is less convincing and creates more for the audience to look at. I considered having a full axis because I know that changing the axis is quite obvious and was trying to stray away from such tactics, 
+            yet no other tactic was quite so persuasive at showing the differences between the bars and so I settled on this one. I would say this is also a -1.5 because again it is 
+            quite deceptive and my intention behind it was to pressure my audience to see the graph in the way that I desired, which was seeing great differences between the bars and thus 
+            believing that there are stark differences between the outcomes by race. 
+
+          </p>
+          <li>#3: The Text Annotations</li>
+          <p>The two text annotations were a stylistic choice that help the audience again focus on what I want them to focus on. This decision help make my visualization persuasive 
+            because it gives the audience a clear number to grasp the difference between the number of White Officers found guilty for the different victim races and the same for the amount absolved.
+          This again guides the audience to focus on what I am arguing and attempting to show via my graph. What worked well was that the annotations immediately draw attention and simplify the interpretation of the data without requiring the 
+          viewer to search for the pattern themselves. However, one downside is that this approach may oversimplify the dataset
+          potentially leading to biased interpretations. This is fine in this case since we are allowed to have deceptive techniques, yet in a normal situation I wouldn't want to have even the chance to lead my audience astray with their interpretations.
+        I considered not using annotations, but settled on this to further simplify my plot. I would give this a score of -.5 because I believe this is being slightly deceptive by again trying to push my
+      audience in a specifc way.</p>
+          <li>#4: The Color Scheme: The "Black" Lines being a Stark Red</li>
+          <p>I made the color scheme so that the lines representing the "Black" victims were a stark difference from the other lines in order to draw the audience's eye and really only look at those lines. In addition it makes it easy to quickly spot the important lines and essentially ignore the rest.
+            This helps make my graph more persuasive because it emphasizes the difference between the "Black" lines and the other more subtle lines. I purposefully put the red lines next to the gray lines, the most neutral in all the plot,
+            in order to really emphasize the differences more purely based on visual illusions essentially. Along with that I purposefully put the gray line next to the red one (remember the one representing "Black" victims) because it was the tallest line for the substantiated section and the shortest line in the exonerated section. 
+            This next to the red line especially emphasized the difference between the red line and gray line. I did this in hopes of having the audience mainly focus on the red and gray lines, which were greatly different in size and this would then further evidence in their eyes of my proposition. I think this overall worked well and I didn't consider other alternatives as it worked its persuasive purpose. 
+            I would rate this with a score of -0.5 because I think it is slightly deceptive with how my thought process occurred in reference to the color choices. 
+          </p>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img id= "sImage" src="img/against.png" alt="A grouped box plot with no emphasis on any particular line trying to argue that disciplinary action is not correlated to race." alt="Chart image" style="max-width:100%; display:block;">
+          <div style="width: 100%;">
+            <iframe
+              id="iChart"
+              src="plots/a_chart.html"
+              width="100%"
+              height="600"
+              style="display: none; border: none;"
+            ></iframe>
+          </div>
+          <figcaption id="chartCaption1">
+            <span id="captionText1">Disciplinary outcomes appear balanced across races.</span>
+            <br>
+            <button onclick="toggleAgainstChart(event)" style="margin-top:10px;">Click for an Interactive Version!</button>
+          </figcaption>          
+          </figcaption>
+        </figure>
+      
+
+        <p>Design Decisions and Rationale:</p>
+        <ul>
+          <li>#1: The Lack of Annotations </li>
+          <p>For this plot I kind of wanted my audience to not really know what they were looking at and to derive no real conclusions from my graph because that is what I was trying to persuade. That essentially, there is no connection between race and disciplinary complaint outcomes.
+            I think the lack of annotations help do so because then it doesn't point the audience in any particular way, but rather has them view the graph on their own accord. I think this works
+            persuasively as it gives the audience no choice but to looks for patterns themselves and yet they are likely to not derive any from this graph without being pushed in any way, which the opposite of the proposition is driving at. I thought about adding annotations, but there were no numbers or facts I wanted to explicitely discuss and I found that wouldn't work well if I tried.
+            So I settled on keeping it more plain. The score is a 0.5 because I think there is no deceit occuring and rather intention is more earnest in attempts of getting the audience to derive their own opinion for themselves. Yet it is a lower score because I think I could be more earnest with the way I am trying to have them derive their own opinion.
+          </p>
+          <li>#2: Keeping Unsubstantiated as a column/category</li>
+          <p>In the first graph I removed unsubstantiated because I found that it didn't serve any help in persuading the audience of my proposition. Yet in this one I left it because again I kind of wanted to overwhelm my audience with information and not give them any direction in hopes that it would lead to a neutral position. 
+          This helped make my visualization persuasive because it provides a lot of information that seems pretty insignificant, in hope that the audience would find that and agree. I think it is persuasive in a passive way
+          because left to our own devices humans need really stark differences to see patterns/be persuaded they exist and since there aren't apparent ones here and there is an additioinal lot to look at, then nothing significant will be derived as a result. This passivity worked well with this graph, instead of removing this column and allowing the audience to only focus on two columns.
+          I considered removing it, but settled on leaving it to again, relatively, overwhelm my audience with information. I would also rate this with a 0.5 because I think it is an earnest attempt to have the audience make a decision on their own accord, but I don't help them as much as I could.
+          </p>
+          <li>#3: The Bar Locations on the graph/legend</li>
+          <p>Again here is a decision that I purposefully made which is passive in a sense. I chose to leave the bar locations to be pretty unordered and not put the "Black" line at the front in order to emphasize it.
+            I also left the legend as is instead of moving it around to emphasize the "Black" color. These helped persuade my audience because they force them to go looking around the the "Black" line and color as they stand out in no apparent way and this then 
+            forces them to work to think and derive patterns. In spending a lot of effort to do so, which these techniques attempt to make that happen, they are less likely to come to any significant conclusions. This worked well and helped acheive my relatively passive graph.
+            I considered ordering it differently, but felt that would emphasive my proposition and not oppose it and so I settled with leaving it unordered. I would score this also a 0.5 because I think I am again being earnest in trying to have my audience derive an opinion, but I am
+            not as earnest as I could be because I want them to derive a neutral opinion and am still, passively in a sense, trying to get them to agree with me.
+          </p>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+        <p>For my first visualization my process was a lot more active in thinking of ways I could be more deceitful to get my audience to agree with me. So whether that was filtering out to just have all the white officers and choosing to not group by type of complaint or picking specific color schemes, it was all in effort to push my audience towards an opinion.
+          I think a lot of this process was trying to force my audience to one clear opinion, to be in support of my proposition. Whereas in my second visualization a lot of my process was thinking about how I could more ethically get my audience to derive an opinion on their own and own that I hoped aligned with what I was saying. I think the first visualization was so actively focused because
+          I needed the audience to not derive any other opinon than the one, the one being my proposition. Yet in the second visualization it was a lot more passively focused because I didn't need them to derive one single opinion, I just needed them to not derive the opinion that my proposition was arguing. I think as a result the second visualization was thinking about how I could lead them away from my proposition and to any other conclusion and this process was more passive as a result.
+          By passive and active I mean the decisions I was making, for example, I was passive by leaving the second visualizaiton's color scheme the way that it was originally instead of actively changing it. 
+        </p>
+        <p>
+          I think it was straight forward thinking of how I could be deceptive because it is really quite easy withholding information or pushing your audience any which way. This conclusion makes the realize the importance of truthful and careful visualizations because I believe it is quite easy to lead people astray 
+          and actually much harder to create a truthful and unbiased graph. I think as a data scientist this is a very important realization to come to as it was very surprising how easy it was to create the first visualization, in a sense, but then how much more time I had to spend thining about how I could earnestly 
+          create the second visualization. I now define “ethical analysis and visualization” as an intentional and purposeful process that seeks to be truthful, earnest, and unbiased at every step in its methods, ideas, and thought process behind it. I think one's thought process is very important 
+          and could be a means of unethical analysis and visualization. So even something as seeminly germane as thought process is incredibly important. I think the bounds between “acceptable” persuasive choices vs. “misleading” ones are quite hard to draw, but again it comes down to the illustrators intentions and thought process.
+          I think if they are earnest with both then then will most likely stay within acceptable persuasive choices. 
+        </p>
+      </section>
+    </main>
+
+    <script>
+      function toggleForChart(event) {
+        const img = document.getElementById('staticImage');
+        const chart = document.getElementById('interactiveChart');
+        const button = event.target;
+        const captionText = document.getElementById('captionText');
+    
+        if (chart.style.display === 'none') {
+          img.style.display = 'none';
+          chart.style.display = 'block';
+          button.textContent = 'Show Original Chart';
+          captionText.textContent = 'Click on the legend to change the graph.';
+        } else {
+          img.style.display = 'block';
+          chart.style.display = 'none';
+          button.textContent = 'Click for an Interactive Version!';
+          captionText.textContent = 'There are disproportionate results across races.';
+        }
+      }
+    </script>
+
+<script>
+  function toggleAgainstChart(event) {
+    const img = document.getElementById('sImage');
+    const chart = document.getElementById('iChart');
+    const button = event.target;
+    const captionText = document.getElementById('captionText1');
+
+    if (chart.style.display === 'none') {
+      img.style.display = 'none';
+      chart.style.display = 'block';
+      button.textContent = 'Show Original Chart';
+      captionText.textContent = 'Click on the legend to change the graph.';
+    } else {
+      img.style.display = 'block';
+      chart.style.display = 'none';
+      button.textContent = 'Click for an Interactive Version!';
+      captionText.textContent = 'Disciplinary outcomes appear balanced across races.';
+    }
+  }
+</script>
+    
+  </body>
+</html>
