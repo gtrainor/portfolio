@@ -126,7 +126,10 @@ document.body.insertAdjacentHTML(
     article.innerHTML = `
       <${headingLevel}>${p.title || 'Untitled Project'}</${headingLevel}>
       <img src="${p.image || 'placeholder.jpg'}" alt="${p.title || 'No title'}">
-      <p>${p.description || 'No description available.'}</p>
+      <div class="text">
+        <p>${p.description || 'No description available.'}</p>
+        <h5>${p.year}</h5>
+      </div>
     `;
 
     containerElement.appendChild(article);

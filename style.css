@@ -97,12 +97,93 @@ button{
 }
 .projects article{
   display:grid;
-  grid-template-rows: subgrid;
+  grid-template-rows: auto auto 1fr auto; 
   grid-row: span 3;
-  gap: 1em
+  gap: 0.5em
 
 }
-.projects article h2 {
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+
+}
+/* hmm */
+
+.legend {
+  display: grid;
+  grid-template: auto-fill;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 10px;                     
+  padding: 0;                    
+  list-style: none;            
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5em;
+  background-color: #f9f9f9; 
+  flex: 1;
+}
+
+.legend li {
+  display: flex;                
+  align-items: center;          
+  font-size: 14px;  
+  gap: 5px;           
+
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+.swatch {
+  display: inline-block;        
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;           
+  margin-right: 10px; 
+  aspect-ratio: 1 / 1;         
+  background-color: var(--color); 
+}
+
+.container{
+  display:flex;
+  align-items:center;
+  gap: 1em;
+}
+
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-variant-numeric: oldstyle-nums;
+  font-family: Baskerville;
+
+  
+}
+.text h5 {
+  margin-bottom: 1em;
+}
+
+.projects article h2,h5 {
   margin: 0
 }
 
