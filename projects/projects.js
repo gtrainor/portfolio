@@ -84,17 +84,18 @@ function renderPieChart(projectsGiven) {
     
 
   }
-  
+  let query = ''
   // Call this function on page load
   renderPieChart(projects);
-  
+    
     let searchInput = document.querySelector('.searchBar');
   searchInput.addEventListener('change', (event) => {
 
     let query = event.target.value;
     let filteredProjects = projects.filter((project) => {
-        let values = Object.values(project).join('\n').toLowerCase();
-        return values.includes(query.toLowerCase());
+        let matchesYear = selectedIndex === -1 || project.year === d3.select('svg').selectAll('path').data()[selectedIndex]?.data.label;
+        let values = Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase());
+        return values && matchesYear;
       });
     // let filteredProjects = setQuery(event.target.value);
     // re-render legends and pie chart when event triggers
