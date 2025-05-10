@@ -263,3 +263,149 @@ dd {
   margin: 0;
   grid-row: 2;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  width: auto; /* Allow container to auto-resize based on content */
+  min-width: 100%; /* Ensure it doesn’t shrink too small */
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.stats dt {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+}
+
+.stats dd {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+  margin: 0;
+  word-break: break-word;
+  white-space: nowrap; /* Prevent text from breaking unnecessarily */
+}
+.gridlines line {
+  stroke: #ddd; /* Lighter color for gridlines */
+  stroke-width: 0.5; /* Thinner lines */
+  opacity: 0.9; /* Lower opacity to make them less prominent */
+}
+/* Styling for <dl> with class .info */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr; /* 1st column for dt, 2nd for dd */
+  gap: 1rem; /* Space between columns */
+  margin: 0; /* Remove default margins */
+}
+
+dl.info dt {
+  font-weight: 400; /* Less prominent label */
+  font-size: 0.9rem;
+  color: #777; /* Lighter color for labels */
+  margin: 0; /* Remove default margin */
+  white-space: nowrap; /* Ensure labels stay on one line */
+}
+
+dl.info dd {
+  font-weight: 500; /* Prominent values */
+  font-size: 1rem;
+  color: #222; /* Darker color for values */
+  margin: 0; /* Remove default margin */
+  word-wrap: break-word; /* Wrap long values */
+}
+
+/* Styling for tooltips */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(0, 0, 0, 0.75); /* Dark background */
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it appears above other content */
+  pointer-events: none; /* Prevent it from interfering with other interactions */
+}
+
+/* Hover effect for dots */
+.dot:hover {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  fill: #ff6347; /* Change fill color when hovered */
+  opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.tooltip {
+  position: absolute;  /* Makes it position relative to the document */
+  background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for elevation */
+  border-radius: 8px;  /* Rounded corners */
+  padding: 10px;  /* Space around the content */
+  pointer-events: none;  /* Prevents the tooltip from interfering with mouse events */
+  opacity: 0;  /* Hidden by default */
+  transition: opacity 0.2s ease;  /* Smooth fade in/out */
+  word-wrap: break-word;  /* Ensure long text wraps within the tooltip */
+  z-index: 9999;  /* Makes sure the tooltip is above other elements */
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
