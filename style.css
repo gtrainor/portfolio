@@ -1,411 +1,572 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    display: block;
-   /* margin: 10px; */
-    margin-inline: 10px;
-    padding: 10px;
-  }
-  :root {
-    color-scheme: light dark;
-  }
-  
-img {
-  width: 50%; /*wanted to make the image smaller */
-  height: auto;
+  /* Set line height to 1.5 times the font size
+       and use the OS’s UI font as the website font
+     */
+  font: 100%/1.5 system-ui;
+  /* Removed max-width and margin/padding from body to allow full-width sections */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
-/*
-nav ul,
-nav li {
-  display: contents; 
-
-}
-*/
-nav {
-  display: flex;
-  margin-bottom: 10px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  /* border-bottom-color: oklch(80% 3% 200); */
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom-color: var(--border-color);
-
-}
-nav a{
-  flex: 1;
-  text-align: center;
-  padding: 0.5em;
-  text-decoration: none;
-  font-weight: bold;
-  color: inherit;
-  
-}
-nav a.current {
-  border-bottom-width: 0.4em; 
-  border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
-  padding-bottom: 0.4em;
-  /*color: purple;*/
-
-}
-  
 :root {
-   --color-accent: #c44d7d;/*oklch(65% 50% 0); Accent color */
+  color-scheme: light dark;
+  --color-accent: #c44d7d; /* Accent color */
 }
 
+/* Global accent color */
 html {
-  accent-color: var(--color-accent);
+accent-color: var(--color-accent);
 }
+
+img {
+width: 50%; /* Wanted to make the image smaller */
+height: auto;
+}
+
+/* Navigation Bar */
+nav {
+display: flex;
+margin-bottom: 10px;
+border-bottom-width: 2px;
+border-bottom-style: solid;
+--border-color: oklch(50% 10% 200 / 40%);
+border-bottom-color: var(--border-color);
+/* Ensure nav also respects a max-width if desired, or let it span full width */
+max-width: 100ch; /* Example: Keep nav within standard page width */
+margin-inline: auto; /* Center the nav */
+padding: 0 10px; /* Add some horizontal padding */
+}
+
+nav a{
+flex: 1;
+text-align: center;
+padding: 0.5em;
+text-decoration: none;
+font-weight: bold;
+color: inherit;
+}
+
+nav a.current {
+border-bottom-width: 0.4em;
+border-bottom-style: solid;
+border-bottom-color: oklch(80% 3% 200);
+padding-bottom: 0.4em;
+}
+
 nav a:hover{
-  border-bottom-width: 0.4em; 
-  border-bottom-style: solid;
-  border-bottom-color: var(--color-accent);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+border-bottom-width: 0.4em;
+border-bottom-style: solid;
+border-bottom-color: var(--color-accent);
+background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
+/* Form Elements */
 input, textarea, button {
-  font: inherit; 
-
+font: inherit;
 }
+
 form{
-  display:grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
+display:grid;
+grid-template-columns: auto 1fr;
+gap: 1em;
 }
+
 label{
-  display:grid;
-  grid-template-columns: auto 1fr;
-  /* grid-column: 1 / -1;  doesn't work how it should */
+display:grid;
+grid-template-columns: auto 1fr;
 }
+
 button{
-  display:grid;
-  grid-template-columns: auto 1fr;
-  grid-column: 1 / -1;
-  text-align: center;
-  vertical-align: middle;  
-  display: inline-block;   
- 
+display:grid;
+grid-template-columns: auto 1fr;
+grid-column: 1 / -1;
+text-align: center;
+vertical-align: middle;
+display: inline-block;
 }
+
+/* Projects Section */
 .projects{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em,1fr));
-
+display:grid;
+grid-template-columns: repeat(auto-fill, minmax(15em,1fr));
+max-width: 100ch; /* Keep within readable width */
+margin-inline: auto;
+padding: 10px; /* Adjust padding if needed */
 }
-.projects article{
-  display:grid;
-  grid-template-rows: auto auto 1fr auto; 
-  grid-row: span 3;
-  gap: 0.5em
 
+.projects article{
+display:grid;
+grid-template-rows: auto auto 1fr auto;
+grid-row: span 3;
+gap: 0.5em;
 }
 
 #projects-pie-plot {
-  max-width: 20em;
-  margin-block: 2em;
-
-  overflow: visible;
-
+max-width: 20em;
+margin-block: 2em;
+overflow: visible;
 }
-/* hmm */
 
+/* Legend Styling */
 .legend {
-  display: grid;
-  grid-template: auto-fill;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 10px;                     
-  padding: 0;                    
-  list-style: none;            
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 0.5em;
-  background-color: #f9f9f9; 
-  flex: 1;
+display: grid;
+grid-template: auto-fill;
+grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+gap: 10px;
+padding: 0;
+list-style: none;
+border: 1px solid #ccc;
+border-radius: 6px;
+padding: 0.5em;
+background-color: #f9f9f9;
+flex: 1;
 }
 
 .legend li {
-  display: flex;                
-  align-items: center;          
-  font-size: 14px;  
-  gap: 5px;           
-
+display: flex;
+align-items: center;
+font-size: 14px;
+gap: 5px;
 }
 
+/* Path (SVG) Styling */
 &:has(path:hover) {
-  path:not(:hover) {
-    opacity: 0.5;
-  }
+path:not(:hover) {
+  opacity: 0.5;
+}
 }
 
 path {
-  transition: 300ms;
-  cursor: pointer;
+transition: 300ms;
+cursor: pointer;
 }
 
 .selected {
-  --color: oklch(60% 45% 0) !important;
-
-  &:is(path) {
-    fill: var(--color);
-  }
+--color: oklch(60% 45% 0) !important;
+&:is(path) {
+  fill: var(--color);
+}
 }
 
 .swatch {
-  display: inline-block;        
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;           
-  margin-right: 10px; 
-  aspect-ratio: 1 / 1;         
-  background-color: var(--color); 
+display: inline-block;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+margin-right: 10px;
+aspect-ratio: 1 / 1;
+background-color: var(--color);
 }
 
 .container{
-  display:flex;
-  align-items:center;
-  gap: 1em;
+display:flex;
+align-items:center;
+gap: 1em;
 }
-
 
 .text {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  font-variant-numeric: oldstyle-nums;
-  font-family: Baskerville;
-
-  
+display: flex;
+flex-direction: column;
+margin: 0;
+font-variant-numeric: oldstyle-nums;
+font-family: Baskerville;
 }
+
 .text h5 {
-  margin-bottom: 1em;
+margin-bottom: 1em;
 }
 
 .projects article h2,h5 {
-  margin: 0
+margin: 0
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6{
-  line-height: 1.1;
-  text-wrap: balance;
+line-height: 1.1;
+text-wrap: balance;
+max-width: 100ch; /* Keep within readable width */
+margin-inline: auto; /* Center content */
+padding: 10px; /* Add some padding to headings */
 }
-h1{
-  font-size: 300%;
-  margin-bottom: 0.5em;
 
+h1{
+font-size: 300%;
+margin-bottom: 0.5em;
 }
+
+h2 {
+margin-block: 1em; /* Add some vertical space */
+}
+
+/* Links */
 .link {
-  color: #c44d7d;
-  text-decoration: none;
+color: #c44d7d;
+text-decoration: none;
 }
 
 .link:hover{
-  border-bottom-width: 0.4em; 
-  border-bottom-style: solid;
-  border-bottom-color: var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+border-bottom-width: 0.4em;
+border-bottom-style: solid;
+border-bottom-color: var(--color-accent);
+background-color: oklch(from var(--color-accent) 95% 5% h);
 }
+
 section article {
-  font-weight: bold;
-  gap: 1em;
+font-weight: bold;
+gap: 1em;
 }
 
 section time{
-  font-style: italic;
-  color: #b36868;
-}
-.space{
-  margin-top: 1em;
+font-style: italic;
+color: #b36868;
 }
 
+.space{
+margin-top: 1em;
+}
+
+/* General Section Styling (for content outside scrolly-1) */
 section {
-  background-color: white;
-  padding: 1.5em;
-  margin: 1.5em 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+background-color: white;
+padding: 1.5em;
+margin: 1.5em auto; /* Center sections and give vertical margin */
+border-radius: 10px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+max-width: 100ch; /* Limit width of standard sections */
+box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
 
 .color-scheme{
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 80%;
-  font-family: inherit;
+position: absolute;
+top: 1rem;
+right: 1rem;
+font-size: 80%;
+font-family: inherit;
 }
 
-
-
+/* Profile Stats */
 #profile-stats {
-  background: #c44d7d;
-  padding: 0.5rem;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-  max-width: 600px;
-  
+background: #c44d7d;
+padding: 0.5rem;
+margin-top: 1rem;
+border-radius: 0.5rem;
+max-width: 600px;
+margin-inline: auto; /* Center this specific stats block */
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-  gap: 1rem;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+text-align: center;
+gap: 1rem;
 }
 
 dt {
-  font-weight: bold;
-  grid-row: 1;
+font-weight: bold;
+grid-row: 1;
 }
 
 dd {
-  margin: 0;
-  grid-row: 2;
+margin: 0;
+grid-row: 2;
 }
 
+/* General Stats Display (like Language Breakdown) */
 .stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  width: auto; /* Allow container to auto-resize based on content */
-  min-width: 100%; /* Ensure it doesn’t shrink too small */
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  text-align: center;
-  word-wrap: break-word;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+gap: 2rem;
+width: auto;
+min-width: 100%;
+margin: 2rem auto; /* Center with vertical margin */
+padding: 2rem;
+border: 1px solid #ddd;
+border-radius: 10px;
+background-color: #f9f9f9;
+text-align: center;
+word-wrap: break-word;
+max-width: 100ch; /* Keep within readable width */
+box-sizing: border-box;
 }
 
 .stats dt {
-  font-weight: 600;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 0.25rem;
-  white-space: nowrap;
+font-weight: 600;
+font-size: 0.75rem;
+text-transform: uppercase;
+color: #777;
+margin-bottom: 0.25rem;
+white-space: nowrap;
 }
 
 .stats dd {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #222;
-  margin: 0;
-  word-break: break-word;
-  white-space: nowrap; /* Prevent text from breaking unnecessarily */
+font-size: 1.2rem;
+font-weight: 500;
+color: #222;
+margin: 0;
+word-break: break-word;
+white-space: nowrap;
 }
+
+/* Chart Gridlines */
 .gridlines line {
-  stroke: #ddd; /* Lighter color for gridlines */
-  stroke-width: 0.5; /* Thinner lines */
-  opacity: 0.9; /* Lower opacity to make them less prominent */
+stroke: #ddd;
+stroke-width: 0.5;
+opacity: 0.9;
 }
-/* Styling for <dl> with class .info */
+
+/* Info/Tooltip DL Styling */
 dl.info {
-  display: grid;
-  grid-template-columns: auto 1fr; /* 1st column for dt, 2nd for dd */
-  gap: 1rem; /* Space between columns */
-  margin: 0; /* Remove default margins */
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 1rem;
+margin: 0;
 }
 
 dl.info dt {
-  font-weight: 400; /* Less prominent label */
-  font-size: 0.9rem;
-  color: #777; /* Lighter color for labels */
-  margin: 0; /* Remove default margin */
-  white-space: nowrap; /* Ensure labels stay on one line */
+font-weight: 400;
+font-size: 0.9rem;
+color: #777;
+margin: 0;
+white-space: nowrap;
 }
 
 dl.info dd {
-  font-weight: 500; /* Prominent values */
-  font-size: 1rem;
-  color: #222; /* Darker color for values */
-  margin: 0; /* Remove default margin */
-  word-wrap: break-word; /* Wrap long values */
+font-weight: 500;
+font-size: 1rem;
+color: #222;
+margin: 0;
+word-wrap: break-word;
 }
 
-/* Styling for tooltips */
-.tooltip {
-  position: fixed;
-  top: 1em;
-  left: 1em;
-  background-color: rgba(0, 0, 0, 0.75); /* Dark background */
-  color: white;
-  padding: 0.5rem;
-  border-radius: 5px;
-  z-index: 1000; /* Ensure it appears above other content */
-  pointer-events: none; /* Prevent it from interfering with other interactions */
+/* Tooltip (Commit Info) */
+#commit-tooltip { /* Changed from .tooltip to #commit-tooltip for specific styling */
+position: absolute;
+background-color: rgba(255, 255, 255, 0.8);
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+padding: 10px;
+pointer-events: none;
+opacity: 0; /* Hidden by default */
+transition: opacity 0.2s ease;
+word-wrap: break-word;
+z-index: 9999;
 }
 
-/* Hover effect for dots */
-.dot:hover {
-  cursor: pointer; /* Change cursor to pointer on hover */
-  fill: #ff6347; /* Change fill color when hovered */
-  opacity: 0.8; /* Slightly reduce opacity on hover */
-}
-circle {
-  transition: 200ms;
-  transform-origin: center;
-  transform-box: fill-box;
-}
-
-circle:hover {
-  transform: scale(1.5);
-}
-
-.tooltip {
-  position: absolute;  /* Makes it position relative to the document */
-  background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent background */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for elevation */
-  border-radius: 8px;  /* Rounded corners */
-  padding: 10px;  /* Space around the content */
-  pointer-events: none;  /* Prevents the tooltip from interfering with mouse events */
-  opacity: 0;  /* Hidden by default */
-  transition: opacity 0.2s ease;  /* Smooth fade in/out */
-  word-wrap: break-word;  /* Ensure long text wraps within the tooltip */
-  z-index: 9999;  /* Makes sure the tooltip is above other elements */
-}
-
-dl.info {
-  /* ... other styles ... */
-  transition-duration: 500ms;
-  transition-property: opacity, visibility;
+dl.info { /* This class is now used only for structure inside tooltip */
+transition-duration: 500ms;
+transition-property: opacity, visibility;
 }
 
 dl.info[hidden]:not(:hover, :focus-within) {
-  opacity: 0;
-  visibility: hidden;
+opacity: 0;
+visibility: hidden;
 }
 
+
+/* Circles/Dots in Chart */
+@keyframes popIn {
+from {
+  transform: scale(0);
+}
+to {
+  transform: scale(1);
+}
+}
+
+circle {
+transform-origin: center;
+transform-box: fill-box;
+}
+
+circle:hover {
+transform: scale(1.5);
+cursor: pointer; /* Change cursor to pointer on hover */
+fill: #ff6347; /* Change fill color when hovered */
+opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+/* Selection Rectangle */
 @keyframes marching-ants {
-  to {
-    stroke-dashoffset: -8; /* 5 + 3 */
-  }
+to {
+  stroke-dashoffset: -8;
+}
 }
 
 .selection {
-  fill-opacity: 0.1;
-  stroke: black;
-  stroke-opacity: 0.7;
-  stroke-dasharray: 5 3;
-  animation: marching-ants 2s linear infinite;
+fill-opacity: 0.1;
+stroke: black;
+stroke-opacity: 0.7;
+stroke-dasharray: 5 3;
+animation: marching-ants 2s linear infinite;
 }
 
 circle.selected {
-  fill: #ff6b6b;
+fill: #ff6b6b;
 }
 
-.selection {
-  fill-opacity: 0.1;
-  stroke: black;
-  stroke-opacity: 0.7;
-  stroke-dasharray: 5 3;
-  animation: marching-ants 2s linear infinite;
+
+/* Filtering UI */
+#filtering-ui {
+display: flex;
+align-items: baseline;
+margin-bottom: 20px;
+max-width: 100ch; /* Keep within readable width */
+margin-inline: auto; /* Center */
+padding: 10px; /* Add some padding */
 }
 
-@keyframes marching-ants {
-  to {
-    stroke-dashoffset: -8;
-  }
+#filtering-ui label {
+flex: 1;
+}
+
+#filtering-ui time {
+margin-left: auto;
+}
+
+/* Stats (individual) */
+#stats {
+border: 1px solid #ccc;
+padding: 15px;
+margin-top: 20px;
+max-width: 100ch; /* Keep within readable width */
+margin-inline: auto; /* Center */
+box-sizing: border-box;
+}
+
+/* File Display Section (#files) */
+#files {
+display: grid;
+grid-template-columns: 1fr;
+gap: 5px;
+/* Adjust margin-top if needed for spacing at the top of the page */
+margin-top: 1em; /* This should be fine now that other elements are centered */
+border: 1px solid #ddd;
+padding: 10px;
+background-color: #fcfcfc;
+border-radius: 5px;
+max-width: 100ch; /* Keep within readable width */
+margin-inline: auto; /* Center */
+box-sizing: border-box;
+}
+
+#files > div.file-entry {
+grid-column: 1;
+display: block;
+border-bottom: 1px dotted #eee;
+padding-bottom: 5px;
+margin-bottom: 5px;
+}
+
+#files > div.file-entry:last-child {
+border-bottom: none;
+margin-bottom: 0;
+padding-bottom: 0;
+}
+
+#files dt {
+font-weight: bold;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+margin-bottom: 0.2em;
+}
+
+#files dt code {
+display: inline;
+font-size: 0.95em;
+color: #333;
+}
+
+#files dt small {
+display: inline;
+font-size: 0.75em;
+opacity: 0.7;
+font-weight: normal;
+color: #666;
+margin-left: 0.5em;
+}
+
+#files dd {
+margin-left: 0;
+padding-top: 0;
+display: flex;
+flex-wrap: wrap;
+overflow-x: visible;
+align-items: flex-start;
+align-content: flex-start;
+gap: 0.15em;
+}
+
+.loc {
+width: 0.5em;
+aspect-ratio: 1;
+border-radius: 50%;
+background: var(--color, steelblue);
+}
+
+/* --- Scrolly Section Styles (Full Screen Chart) --- */
+#scrolly-1 {
+position: relative;
+display: flex;
+min-height: 100vh;
+width: 100vw; /* Make it span the full viewport width */
+margin-left: calc(50% - 50vw); /* Compensate for potential body offset */
+gap: 1rem;
+padding: 20px; /* Outer padding for the entire scrolly section - provides space from edges */
+box-sizing: border-box;
+}
+
+#scrolly-1 > * {
+flex: 1;
+}
+
+.scrolly-overlay {
+  flex: 1;
+  padding-right: 20px; /* Space between text and chart */
+  padding-left: 20px; /* Padding for the narrative text within its column */
+  box-sizing: border-box;
+  max-width: 50ch; /* Constrain text column width for readability */
+  margin-inline: auto; /* Center text within its column */
+}
+
+.step {
+margin-bottom: 100vh; /* Ensures a full screen scroll for each step */
+padding: 20px;
+background-color: rgba(255, 255, 255, 0.9);
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+line-height: 1.6;
+font-size: 1.1em;
+box-sizing: border-box;
+}
+
+.step:last-child {
+margin-bottom: 0;
+}
+
+#chart {
+position: sticky;
+top: 0;
+left: 0;
+bottom: auto;
+height: 100vh; /* Full viewport height */
+/* width: 100%; is handled by flex: 1; in its parent */
+background-color: #fff;
+border-radius: 8px; /* Consider removing or reducing if it clashes with full screen */
+box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Consider removing or reducing if full screen */
+overflow: hidden;
+box-sizing: border-box;
+
+padding: 20px; /* Internal padding for the chart content */
+display: flex;
+justify-content: center; /* Center SVG horizontally within #chart */
+align-items: center; /* Center SVG vertically within #chart */
+}
+
+#chart svg {
+max-width: 100%; /* SVG will scale down to fit #chart's padded area */
+max-height: 100%; /* SVG will scale down to fit #chart's padded area */
+display: block;
 }

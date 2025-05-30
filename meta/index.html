@@ -9,10 +9,32 @@
 </head>
 <body>
     <script type="module" src="../global.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
     <script type="module" src="./main.js"></script>
     <div id="stats"></div>
     <h2>Commits by time of day</h2>
-    <div id="chart"></div>
+    <!-- <div id="chart"></div> -->
+
+    <div id="filtering-ui"> 
+      <label for="commit-progress"> Show commits until:
+            <input type="range" id="commit-progress" min="0" max="100" value="100">
+          </label>
+        <time id="commit-time"></time> </div>
+      </time>
+    
+    </div>
+   
+      <!-- old code -->
+  <div id="scrolly-1">
+    <div id="scatter-story">Commit Diary:</div>
+    <div id="chart">
+      <!-- old code -->
+    </div>
+  </div>
+  <!-- old code -->
+
+    
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
         <dd>
@@ -36,6 +58,15 @@
 
       <dl id="language-breakdown" class="stats"></dl>
 
-      
+      <dl id="files">
+        <!-- we want the following structure for each file:
+        <div>
+          <dt>
+            <code>{file.name}</code>
+          </dt>
+          <dd>{file.lines.length} lines</dd>
+        </div>
+        -->
+      </dl>
 </body>
 </html>
